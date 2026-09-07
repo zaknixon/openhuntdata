@@ -1,0 +1,128 @@
+[
+  {
+    "id": "00000000-0000-4000-8000-0000000000c8",
+    "created_at": "2025-11-15T20:00:00-06:00",
+    "updated_at": "2025-11-15T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-200"
+    },
+    "visibility": "private",
+    "occurred_at": "2025-11-15T07:41:00-06:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -86.7905,
+        36.1035
+      ]
+    },
+    "species": "white_tailed_deer",
+    "sex": "male",
+    "age_class": "mature",
+    "weapon": "rifle",
+    "hunt_id": "00000000-0000-4000-8000-00000000006a",
+    "waypoint_id": "00000000-0000-4000-8000-000000000014",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "weather": {
+      "temperature_c": 1,
+      "humidity_pct": 66,
+      "pressure_hpa": 1016,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 3,
+      "wind_direction_deg": 270,
+      "cloud_cover_pct": 78,
+      "moon": {
+        "phase": "waxing_crescent",
+        "illumination_pct": 72
+      },
+      "provider": "example"
+    },
+    "media": [
+      "media/c0855b5d26779f88fc640fcdbfc9277cc2cf953e183c3fa53404a5c55591bf63.jpg"
+    ],
+    "notes": "Eight-point, came in from the creek bottom at first light.",
+    "measurements": [
+      {
+        "name": "antler_points",
+        "value": 8,
+        "unit": "1"
+      },
+      {
+        "name": "inside_spread",
+        "value": 16.5,
+        "unit": "[in_i]"
+      },
+      {
+        "name": "field_dressed_weight",
+        "value": 165,
+        "unit": "lb_av"
+      }
+    ],
+    "scores": [
+      {
+        "system": "boone_crockett",
+        "method": "measured",
+        "gross": 138.25,
+        "net": 133.5,
+        "scored_at": "2025-11-16T12:00:00-06:00"
+      },
+      {
+        "system": "boone_crockett",
+        "method": "ai",
+        "gross": 141,
+        "confidence": 0.71
+      }
+    ]
+  },
+  {
+    "id": "00000000-0000-4000-8000-0000000000c9",
+    "created_at": "2025-12-20T20:00:00-06:00",
+    "updated_at": "2025-12-20T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-201"
+    },
+    "visibility": "private",
+    "occurred_at": "2025-12-20T09:02:00-06:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -86.786,
+        36.115
+      ]
+    },
+    "species": "white_tailed_deer",
+    "sex": "female",
+    "age_class": "mature",
+    "weapon": "muzzleloader",
+    "hunt_id": "00000000-0000-4000-8000-00000000006f",
+    "waypoint_id": "00000000-0000-4000-8000-000000000015",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "weather": {
+      "temperature_c": -4,
+      "humidity_pct": 71,
+      "pressure_hpa": 1016,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 4,
+      "wind_direction_deg": 135,
+      "cloud_cover_pct": 43,
+      "moon": {
+        "phase": "last_quarter",
+        "illumination_pct": 32
+      },
+      "provider": "example"
+    },
+    "media": [
+      "media/e3f9a92796dab71fd356e03928d415061799b1a7d12468d51f3dbfa9f698ca37.jpg"
+    ],
+    "measurements": [
+      {
+        "name": "field_dressed_weight",
+        "value": 110,
+        "unit": "lb_av"
+      }
+    ]
+  }
+]

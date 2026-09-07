@@ -1,0 +1,74 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "00000000-0000-4000-8000-00000000001e",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -86.8,
+            36.105
+          ],
+          [
+            -86.795,
+            36.1045
+          ],
+          [
+            -86.7905,
+            36.1035
+          ]
+        ]
+      },
+      "properties": {
+        "id": "00000000-0000-4000-8000-00000000001e",
+        "created_at": "2025-09-06T20:00:00-06:00",
+        "updated_at": "2025-09-06T20:00:00-06:00",
+        "source": {
+          "app": "OHD Examples",
+          "app_version": "1.0.0",
+          "record_id": "rec-30"
+        },
+        "visibility": "private",
+        "name": "Walk-in to creek stand",
+        "category": "recorded",
+        "started_at": "2025-09-06T07:10:00-06:00",
+        "ended_at": "2025-09-06T07:28:00-06:00",
+        "distance_m": 870
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "00000000-0000-4000-8000-00000000001f",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -86.7875,
+            36.112
+          ],
+          [
+            -86.7875,
+            36.112
+          ]
+        ]
+      },
+      "properties": {
+        "id": "00000000-0000-4000-8000-00000000001f",
+        "created_at": "2025-10-25T20:00:00-06:00",
+        "updated_at": "2025-10-25T20:00:00-06:00",
+        "source": {
+          "app": "OHD Examples",
+          "app_version": "1.0.0",
+          "record_id": "rec-31"
+        },
+        "visibility": "private",
+        "category": "annotation",
+        "style": {
+          "label": "Rut sign starts here"
+        }
+      }
+    }
+  ]
+}

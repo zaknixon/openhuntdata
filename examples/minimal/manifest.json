@@ -1,0 +1,36 @@
+{
+  "ohd_version": "1.0.0",
+  "exported_at": "2026-09-07T10:00:00-05:00",
+  "exporter": {
+    "name": "OHD Examples",
+    "version": "1.0.0",
+    "url": "https://github.com/openhuntdata/spec"
+  },
+  "subject": {
+    "display_name": "Example Hunter",
+    "user_id_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000001"
+  },
+  "files": [
+    {
+      "path": "harvests.json",
+      "kind": "harvests",
+      "count": 1,
+      "sha256": "6694ab556be471ec9533667689166139e7bba6a56993a047b53701d4548af11b",
+      "bytes": 1061
+    }
+  ],
+  "coverage": {
+    "included": [
+      "harvests"
+    ],
+    "omitted": [
+      {
+        "kind": "sightings",
+        "reason": "The minimal example intentionally contains a single harvest and nothing else."
+      }
+    ],
+    "flags": {
+      "strip_location": false
+    }
+  }
+}

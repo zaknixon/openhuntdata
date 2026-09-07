@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openhuntdata.org/schemas/1.0/hunt.schema.json",
+  "title": "Open Hunt Data hunts.json",
+  "type": "array",
+  "items": { "$ref": "#/$defs/hunt" },
+  "$defs": {
+    "hunt": {
+      "allOf": [
+        { "$ref": "common.schema.json#/$defs/envelope" },
+        {
+          "type": "object",
+          "required": ["started_at", "location_kind", "outcome"],
+          "properties": {
+            "started_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+            "ended_at": { "anyOf": [{ "$ref": "common.schema.json#/$defs/timestamp" }, { "type": "null" }] },
+            "location_kind": { "enum": ["waypoint", "gps", "general"] },
+            "location": { "$ref": "common.schema.json#/$defs/nullablePoint" },
+            "waypoint_id": { "$ref": "common.schema.json#/$defs/uuid" },
+            "area_id": { "$ref": "common.schema.json#/$defs/uuid" },
+            "property_id": { "$ref": "common.schema.json#/$defs/uuid" },
+            "outcome": { "enum": ["harvest", "sighting", "quiet", "unknown"] },
+            "harvest_ids": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/uuid" } },
+            "sighting_ids": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/uuid" } },
+            "weather_forecast": { "$ref": "common.schema.json#/$defs/weather" },
+            "weather_actual": { "$ref": "common.schema.json#/$defs/weather" },
+            "moon": { "$ref": "common.schema.json#/$defs/moon" }
+          }
+        }
+      ]
+    }
+  }
+}

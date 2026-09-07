@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openhuntdata.org/schemas/1.0/waypoints.schema.json",
+  "title": "Open Hunt Data waypoints.geojson",
+  "type": "object",
+  "required": ["type", "features"],
+  "properties": {
+    "type": { "const": "FeatureCollection" },
+    "features": { "type": "array", "items": { "$ref": "#/$defs/feature" } }
+  },
+  "$defs": {
+    "historyEntry": {
+      "type": "object", "required": ["location", "from"],
+      "properties": {
+        "location": { "$ref": "common.schema.json#/$defs/point" },
+        "from": { "$ref": "common.schema.json#/$defs/dateOrTimestamp" },
+        "to": { "anyOf": [{ "$ref": "common.schema.json#/$defs/dateOrTimestamp" }, { "type": "null" }] },
+        "reason": { "type": "string" }
+      }
+    },
+    "feature": {
+      "type": "object",
+      "required": ["type", "geometry", "properties"],
+      "properties": {
+        "type": { "const": "Feature" },
+        "id": { "$ref": "common.schema.json#/$defs/uuid" },
+        "geometry": { "$ref": "common.schema.json#/$defs/point" },
+        "properties": {
+          "allOf": [
+            { "$ref": "common.schema.json#/$defs/envelope" },
+            {
+              "type": "object",
+              "required": ["name", "category"],
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "category": { "type": "string", "minLength": 1 },
+                "category_text": { "type": "string" },
+                "icon": { "type": "string" },
+                "property_id": { "$ref": "common.schema.json#/$defs/uuid" },
+                "location_history": { "type": "array", "items": { "$ref": "#/$defs/historyEntry" } }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

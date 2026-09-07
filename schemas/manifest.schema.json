@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openhuntdata.org/schemas/1.0/manifest.schema.json",
+  "title": "Open Hunt Data manifest.json",
+  "type": "object",
+  "required": ["ohd_version", "exported_at", "exporter", "files", "coverage"],
+  "properties": {
+    "ohd_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "exported_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+    "exporter": {
+      "type": "object", "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "properties": {
+        "display_name": { "type": "string" },
+        "user_id_hash": { "type": "string", "minLength": 8 }
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["path", "kind", "sha256"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["harvests", "sightings", "hunts", "waypoints", "areas", "tracks", "properties", "media", "extension"] },
+          "count": { "type": "integer", "minimum": 0 },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "bytes": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "coverage": {
+      "type": "object", "required": ["included", "omitted"],
+      "properties": {
+        "included": { "type": "array", "items": { "$ref": "#/$defs/kind" } },
+        "omitted": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["kind", "reason"],
+            "properties": {
+              "kind": { "$ref": "#/$defs/kind" },
+              "reason": { "type": "string", "minLength": 1 },
+              "count": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "flags": { "type": "object", "properties": { "strip_location": { "type": "boolean" } } }
+      }
+    }
+  },
+  "$defs": {
+    "kind": { "enum": ["harvests", "sightings", "hunts", "waypoints", "areas", "tracks", "properties", "media"] }
+  }
+}

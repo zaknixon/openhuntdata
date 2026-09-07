@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openhuntdata.org/schemas/1.0/harvest.schema.json",
+  "title": "Open Hunt Data harvests.json",
+  "type": "array",
+  "items": { "$ref": "#/$defs/harvest" },
+  "$defs": {
+    "harvest": {
+      "allOf": [
+        { "$ref": "common.schema.json#/$defs/envelope" },
+        {
+          "type": "object",
+          "required": ["occurred_at", "species"],
+          "properties": {
+            "occurred_at": { "$ref": "common.schema.json#/$defs/dateOrTimestamp" },
+            "location": { "$ref": "common.schema.json#/$defs/nullablePoint" },
+            "species": { "type": "string", "minLength": 1 },
+            "species_text": { "type": "string" },
+            "sex": { "type": "string" },
+            "age_class": { "type": "string" },
+            "weapon": { "type": ["string", "null"] },
+            "weapon_text": { "type": "string" },
+            "hunt_id": { "$ref": "common.schema.json#/$defs/uuid" },
+            "waypoint_id": { "$ref": "common.schema.json#/$defs/uuid" },
+            "area_id": { "$ref": "common.schema.json#/$defs/uuid" },
+            "property_id": { "$ref": "common.schema.json#/$defs/uuid" },
+            "weather": { "$ref": "common.schema.json#/$defs/weather" },
+            "measurements": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/measurement" } },
+            "scores": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/score" } }
+          }
+        }
+      ]
+    }
+  }
+}

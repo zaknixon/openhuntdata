@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openhuntdata.org/schemas/1.0/vocab.schema.json",
+  "title": "Open Hunt Data vocabulary file",
+  "type": "object",
+  "required": ["name", "values"],
+  "properties": {
+    "name": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "values": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["code", "label"],
+        "properties": {
+          "code": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+          "label": { "type": "string", "minLength": 1 },
+          "aliases": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openhuntdata.org/schemas/1.0/tracks.schema.json",
+  "title": "Open Hunt Data tracks.geojson",
+  "type": "object",
+  "required": ["type", "features"],
+  "properties": {
+    "type": { "const": "FeatureCollection" },
+    "features": { "type": "array", "items": { "$ref": "#/$defs/feature" } }
+  },
+  "$defs": {
+    "style": {
+      "type": "object",
+      "properties": {
+        "stroke": { "type": "string" },
+        "stroke_width": { "type": "number", "minimum": 0 },
+        "dash": { "type": "string" },
+        "label": { "type": "string" },
+        "arrow_end": { "type": "boolean" }
+      }
+    },
+    "feature": {
+      "type": "object",
+      "required": ["type", "geometry", "properties"],
+      "properties": {
+        "type": { "const": "Feature" },
+        "id": { "$ref": "common.schema.json#/$defs/uuid" },
+        "geometry": { "anyOf": [{ "$ref": "common.schema.json#/$defs/lineString" }, { "$ref": "common.schema.json#/$defs/multiLineString" }] },
+        "properties": {
+          "allOf": [
+            { "$ref": "common.schema.json#/$defs/envelope" },
+            {
+              "type": "object",
+              "required": ["category"],
+              "properties": {
+                "name": { "type": "string" },
+                "category": { "type": "string", "minLength": 1 },
+                "category_text": { "type": "string" },
+                "started_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+                "ended_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+                "distance_m": { "type": "number", "minimum": 0 },
+                "style": { "$ref": "#/$defs/style" }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{ "name": "track_category", "values": [
+  { "code": "recorded", "label": "Recorded track", "aliases": ["gps track", "walk"] },
+  { "code": "drawn", "label": "Drawn line", "aliases": ["line", "arrow"] },
+  { "code": "annotation", "label": "Text annotation", "aliases": ["label", "text"] },
+  { "code": "other", "label": "Other" }
+] }

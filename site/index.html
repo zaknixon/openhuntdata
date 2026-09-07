@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Hunt Data</title>
+<meta name="description" content="Open Hunt Data is a vendor-neutral file format for a hunter's own harvests, sightings, hunts, and map data. Your hunting data, portable for life.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23b45309'/%3E%3C/svg%3E">
+<style>
+  :root { --bg:#fbfaf7; --fg:#1c1917; --muted:#57534e; --line:#e7e5e4; --accent:#b45309; --code:#f5f5f4; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141210; --fg:#f5f5f4; --muted:#a8a29e; --line:#292524; --accent:#f59e0b; --code:#1c1917; } }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif }
+  main { max-width:44rem; margin:0 auto; padding:3rem 1.25rem 5rem }
+  h1 { font-size:2.6rem; line-height:1.1; margin:0 0 .5rem; letter-spacing:-.02em }
+  h2 { font-size:1.35rem; margin:3rem 0 .75rem; letter-spacing:-.01em }
+  p.lede { font-size:1.25rem; color:var(--muted); margin:0 0 2rem }
+  a { color:var(--accent) }
+  pre { background:var(--code); border:1px solid var(--line); border-radius:8px; padding:1rem; overflow-x:auto; font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.92em }
+  table { width:100%; border-collapse:collapse; font-size:.95rem }
+  th, td { text-align:left; padding:.5rem .6rem; border-bottom:1px solid var(--line); vertical-align:top }
+  th { color:var(--muted); font-weight:600 }
+  .badge { vertical-align:middle }
+  .links { display:flex; flex-wrap:wrap; gap:.75rem 1.5rem; margin:1.5rem 0 }
+  .links a { font-weight:600; text-decoration:none; border-bottom:2px solid var(--accent) }
+  blockquote { margin:1.5rem 0; padding:.25rem 1rem; border-left:3px solid var(--accent); color:var(--muted) }
+  footer { margin-top:4rem; padding-top:1.5rem; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem }
+</style>
+</head>
+<body>
+<main>
+  <h1>Open Hunt Data</h1>
+  <p class="lede">Your hunting data, portable for life.</p>
+
+  <p>Open Hunt Data (OHD) is a vendor-neutral file format for a hunter's own records: harvests, sightings, hunts, stands and cameras, property boundaries, tracks, and the photos that go with them. Any app can export an OHD bundle. Any app can import one. Decades of seasons stop being locked inside whichever app happened to capture them.</p>
+
+  <nav class="links">
+    <a href="https://github.com/openhuntdata/spec/blob/main/SPEC.md">Read the spec</a>
+    <a href="https://github.com/openhuntdata/spec">GitHub</a>
+    <a href="https://www.npmjs.com/package/@openhuntdata/validator">Validator</a>
+    <a href="https://github.com/openhuntdata/spec/issues/new">Propose a change</a>
+  </nav>
+
+  <h2>Why</h2>
+  <p>A hunter's records outlive any product. Apps get acquired, sunset, or simply stop fitting how someone hunts. When that happens, the data should leave with the person, in a form the next app can read without a support ticket. OHD is that form, published as an open standard so no single company owns it.</p>
+
+  <h2>What a bundle contains</h2>
+  <pre>season-2025.ohd
+├── manifest.json        version, exporting app, hashes, and what was left out and why
+├── harvests.json        harvests with measurements, scores, weather
+├── sightings.json       sightings with per-animal observations
+├── hunts.json           sessions: start, end, stand, outcome, forecast vs actual
+├── waypoints.geojson    stands, cameras, sign, access (GeoJSON Points)
+├── areas.geojson        boundaries, food plots (GeoJSON Polygons)
+├── tracks.geojson       recorded walks, drawn lines (GeoJSON LineStrings)
+├── properties.json      named land with acreage and lease dates
+├── media.json           index of photos and who they belong to
+└── media/               the photos, named by content hash</pre>
+  <p>A bundle is a zip or a plain folder. Map files are ordinary GeoJSON and open in QGIS or geojson.io as they are. Every record carries a stable id, the app it came from, and an <code>extensions</code> slot so apps can round-trip their own fields without polluting the core.</p>
+
+  <blockquote>A bundle contains the subject's own authored records only. It never contains other people's names, contact details, reservation calendars, or records other users authored on shared maps; such omissions are listed in <code>coverage.omitted</code>. Exporters MUST offer a <code>strip_location</code> option that nulls every <code>location</code>, empties <code>location_history</code>, and removes GPS EXIF from media, and MUST record its use in <code>coverage.flags</code>. <em>(SPEC.md §6)</em></blockquote>
+
+  <h2>Conformance</h2>
+  <table>
+    <tr><th>Level</th><th>Meaning</th></tr>
+    <tr><td><img class="badge" src="badges/exporter.svg" alt="Exporter"></td><td>Produces a bundle that passes <code>ohd validate</code> with zero errors, with a truthful <code>coverage</code> block, and lets the user export from inside the app.</td></tr>
+    <tr><td><img class="badge" src="badges/importer.svg" alt="Importer"></td><td>Accepts any valid 1.x bundle without rejecting unknown fields, extensions, or dangling references, and reports what it imported and skipped.</td></tr>
+    <tr><td><img class="badge" src="badges/roundtrip.svg" alt="Round-trip"></td><td>Both, and re-exporting an imported bundle preserves every field and extension, verified by <code>ohd roundtrip</code>.</td></tr>
+  </table>
+
+  <h2>Adopters</h2>
+  <table>
+    <tr><th>App</th><th>Level</th><th>Verified</th></tr>
+    <tr><td><a href="https://emberhunt.app">Ember</a></td><td>Exporter (in progress)</td><td>—</td></tr>
+  </table>
+  <p>Add your app by opening a pull request with a bundle that passes the validator. See <a href="https://github.com/openhuntdata/spec/blob/main/GOVERNANCE.md">GOVERNANCE.md</a>.</p>
+
+  <h2>Validate a bundle</h2>
+  <pre>npx @openhuntdata/validator validate season-2025.ohd</pre>
+
+  <footer>
+    Specification text CC-BY-4.0. Schemas, vocabularies, examples, and validator MIT.
+    Maintained in the open at <a href="https://github.com/openhuntdata/spec">github.com/openhuntdata/spec</a>.
+  </footer>
+</main>
+</body>
+</html>

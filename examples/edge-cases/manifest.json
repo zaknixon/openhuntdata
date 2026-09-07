@@ -1,0 +1,70 @@
+{
+  "ohd_version": "1.0.0",
+  "exported_at": "2026-09-07T10:00:00-05:00",
+  "exporter": {
+    "name": "OHD Examples",
+    "version": "1.0.0",
+    "url": "https://github.com/openhuntdata/spec"
+  },
+  "subject": {
+    "display_name": "Example Hunter",
+    "user_id_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000003"
+  },
+  "files": [
+    {
+      "path": "harvests.json",
+      "kind": "harvests",
+      "count": 1,
+      "sha256": "25e586826273be2d927a45a7d3670b98af9ee847ccc290ce319be7eb5d44d894",
+      "bytes": 636
+    },
+    {
+      "path": "sightings.json",
+      "kind": "sightings",
+      "count": 1,
+      "sha256": "ec69a5aba818de2bf3ca5ce201055d2006f3bbf72d47acf04f5e4b6553ea0f0a",
+      "bytes": 470
+    },
+    {
+      "path": "areas.geojson",
+      "kind": "areas",
+      "count": 1,
+      "sha256": "e4772eb284c95b2564a19769afdcd9bf7d44dace775770cc0e2c9372d2b55d17",
+      "bytes": 751
+    },
+    {
+      "path": "tracks.geojson",
+      "kind": "tracks",
+      "count": 1,
+      "sha256": "508de4af719839f3cc7f17d5382521fc29677692e9c8a01b172ca34a8aa24bd3",
+      "bytes": 620
+    },
+    {
+      "path": "x-legacy-notebook.txt",
+      "kind": "extension",
+      "sha256": "b1138e6e301dd68757982092356628717e3a89a4a3e96a43c683a43bf38ec1b1",
+      "bytes": 93
+    }
+  ],
+  "coverage": {
+    "included": [
+      "harvests",
+      "sightings",
+      "areas",
+      "tracks"
+    ],
+    "omitted": [
+      {
+        "kind": "hunts",
+        "reason": "The source app did not record hunt sessions; the harvest's hunt_id is intentionally dangling to exercise importers."
+      },
+      {
+        "kind": "media",
+        "reason": "No photos in this example."
+      }
+    ],
+    "flags": {
+      "strip_location": true
+    }
+  }
+}

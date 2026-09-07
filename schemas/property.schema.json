@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openhuntdata.org/schemas/1.0/property.schema.json",
+  "title": "Open Hunt Data properties.json",
+  "type": "array",
+  "items": { "$ref": "#/$defs/property" },
+  "$defs": {
+    "address": {
+      "type": "object",
+      "properties": {
+        "line1": { "type": "string" }, "line2": { "type": "string" }, "city": { "type": "string" },
+        "region": { "type": "string" }, "postal_code": { "type": "string" }, "country": { "type": "string" }
+      }
+    },
+    "property": {
+      "allOf": [
+        { "$ref": "common.schema.json#/$defs/envelope" },
+        {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "description": { "type": "string" },
+            "acreage_m2": { "type": "number", "minimum": 0 },
+            "address": { "$ref": "#/$defs/address" },
+            "county": { "type": "string" },
+            "centroid": { "$ref": "common.schema.json#/$defs/nullablePoint" },
+            "lease_from": { "$ref": "common.schema.json#/$defs/date" },
+            "lease_to": { "$ref": "common.schema.json#/$defs/date" },
+            "directions": { "type": "string" }
+          }
+        }
+      ]
+    }
+  }
+}
