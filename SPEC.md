@@ -34,7 +34,7 @@ A bundle is either a **zip file** with extension `.ohd` (store or deflate only) 
 
 Rules:
 - Only `manifest.json` is REQUIRED; every other top-level file MAY be omitted. An absent file means "none exported", and `manifest.coverage` explains why if the exporter holds that kind of data.
-- All JSON MUST be UTF-8 encoded. GeoJSON files MUST follow RFC 7946 (WGS84, longitude first, right-hand rule for polygons).
+- All JSON MUST be UTF-8 encoded. GeoJSON files MUST follow RFC 7946 (WGS84, longitude first, right-hand rule for polygons). Validators report winding-order violations as warnings by default; `ohd validate --strict` promotes them to errors.
 - Readers MUST ignore unknown top-level files and unknown fields anywhere.
 - Writers MUST NOT add top-level files outside this list unless the name starts with `x-`.
 - Relative paths inside the bundle MUST use forward slashes and MUST NOT contain `..` segments.
@@ -228,7 +228,7 @@ Adding a value is a minor-version change. v1.x MUST NOT rename or remove a vocab
 
 Badges: three SVGs in `site/badges/`, plus a table in README listing adopters, level, and date verified.
 
-GeoJSON files MUST conform to RFC 7946: geometry types matching the file (§3), closed polygons, and right-hand-rule exterior-ring winding. Winding-order violations are reported as warnings by default; `ohd validate --strict` promotes them to errors.
+GeoJSON files MUST conform to RFC 7946: geometry types matching the file (§3), closed polygons, and right-hand-rule exterior-ring winding (see §3). Winding-order violations are reported as warnings by default; `ohd validate --strict` promotes them to errors.
 
 ## 8. Versioning
 
