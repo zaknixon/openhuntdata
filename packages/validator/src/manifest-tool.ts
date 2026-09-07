@@ -38,12 +38,18 @@ export function updateManifest(dir: string): Manifest {
     const p = join(dir, spec.file);
     if (!existsSync(p)) continue;
     const buf = readFileSync(p);
-    const data = JSON.parse(buf.toString('utf8')) as unknown;
-    const count = Array.isArray(data)
-      ? data.length
-      : Array.isArray((data as { features?: unknown[] }).features)
-        ? (data as { features: unknown[] }).features.length
-        : undefined;
+    let count: number | undefined;
+    try {
+      const data = JSON.parse(buf.toString('utf8')) as unknown;
+      count = Array.isArray(data)
+        ? data.length
+        : Array.isArray((data as { features?: unknown[] }).features)
+          ? (data as { features: unknown[] }).features.length
+          : undefined;
+    } catch {
+      // Invalid JSON is reported by the validator's schema check; omit count here.
+      count = undefined;
+    }
     files.push({ path: spec.file, kind: spec.kind, ...(count !== undefined ? { count } : {}), sha256: sha256(buf), bytes: buf.length });
   }
   for (const name of readdirSync(dir).filter((n) => n.startsWith('x-')).sort()) {

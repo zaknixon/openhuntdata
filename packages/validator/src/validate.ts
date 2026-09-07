@@ -1,5 +1,7 @@
 import { openBundle, type Bundle } from './bundle.js';
 import { checkContainer } from './checks/container.js';
+import { checkGeoJson } from './checks/geojson.js';
+import { checkSchemas } from './checks/schema.js';
 import { createContext } from './context.js';
 import { buildReport, type Report } from './report.js';
 
@@ -17,7 +19,9 @@ export function validateBundle(input: string | Buffer, options: ValidateOptions 
   }
   const ctx = createContext(bundle, options.strict ?? false);
   if (checkContainer(ctx)) {
-    // Checks 4 to 9 are appended here in Tasks 7 and 8.
+    checkSchemas(ctx);
+    checkGeoJson(ctx);
+    // Checks 6 to 9 are appended here in Task 8.
   }
   return buildReport(ctx.findings);
 }
