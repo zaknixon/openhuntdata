@@ -1,0 +1,8 @@
+{ "name": "area_category", "values": [
+  { "code": "boundary", "label": "Property boundary", "aliases": ["lease", "parcel"] },
+  { "code": "food_plot", "label": "Food plot" },
+  { "code": "bedding", "label": "Bedding area" },
+  { "code": "sanctuary", "label": "Sanctuary", "aliases": ["no-hunt zone"] },
+  { "code": "zone", "label": "Hunting zone", "aliases": ["unit", "section"] },
+  { "code": "other", "label": "Other" }
+] }

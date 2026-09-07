@@ -1,0 +1,10 @@
+{ "name": "weapon", "values": [
+  { "code": "bow", "label": "Bow", "aliases": ["compound", "recurve", "longbow", "archery"] },
+  { "code": "crossbow", "label": "Crossbow" },
+  { "code": "muzzleloader", "label": "Muzzleloader", "aliases": ["black powder"] },
+  { "code": "rifle", "label": "Rifle" },
+  { "code": "shotgun", "label": "Shotgun" },
+  { "code": "handgun", "label": "Handgun", "aliases": ["pistol", "revolver"] },
+  { "code": "air_rifle", "label": "Air rifle", "aliases": ["airgun"] },
+  { "code": "other", "label": "Other" }
+] }

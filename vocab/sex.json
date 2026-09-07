@@ -1,0 +1,6 @@
+{ "name": "sex", "values": [
+  { "code": "male", "label": "Male", "aliases": ["buck", "bull", "boar", "tom", "gobbler", "drake"] },
+  { "code": "female", "label": "Female", "aliases": ["doe", "cow", "sow", "hen"] },
+  { "code": "unknown", "label": "Unknown" },
+  { "code": "other", "label": "Other" }
+] }

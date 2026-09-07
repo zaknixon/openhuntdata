@@ -1,0 +1,17 @@
+{ "name": "waypoint_category", "values": [
+  { "code": "stand", "label": "Stand", "aliases": ["tree stand", "hunting stand", "ladder stand", "climber"] },
+  { "code": "blind", "label": "Blind", "aliases": ["ground blind", "box blind"] },
+  { "code": "camera", "label": "Trail camera", "aliases": ["trail cam", "game camera"] },
+  { "code": "feeder", "label": "Feeder", "aliases": ["bait"] },
+  { "code": "food_plot", "label": "Food plot" },
+  { "code": "water", "label": "Water source", "aliases": ["pond", "creek", "spring"] },
+  { "code": "mineral", "label": "Mineral site", "aliases": ["salt lick"] },
+  { "code": "sign", "label": "Animal sign", "aliases": ["rub", "scrape", "tracks", "droppings", "blood trail", "shed", "feather", "scratching", "dusting"] },
+  { "code": "bedding", "label": "Bedding area", "aliases": ["roost"] },
+  { "code": "travel", "label": "Travel feature", "aliases": ["trail crossing", "pinch point", "saddle", "funnel"] },
+  { "code": "access", "label": "Access", "aliases": ["gate", "parking", "road", "trail", "access point"] },
+  { "code": "structure", "label": "Structure", "aliases": ["camp", "campsite", "club house", "cabin"] },
+  { "code": "hazard", "label": "Hazard", "aliases": ["danger zone"] },
+  { "code": "animal", "label": "Animal location", "aliases": ["buck", "doe", "hog", "turkey"] },
+  { "code": "other", "label": "Other" }
+] }

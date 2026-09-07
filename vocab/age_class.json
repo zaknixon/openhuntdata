@@ -1,0 +1,7 @@
+{ "name": "age_class", "values": [
+  { "code": "young", "label": "Young", "aliases": ["fawn", "yearling", "calf", "jake", "poult"] },
+  { "code": "mature", "label": "Mature" },
+  { "code": "old", "label": "Old" },
+  { "code": "unknown", "label": "Unknown" },
+  { "code": "other", "label": "Other" }
+] }

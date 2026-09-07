@@ -1,0 +1,11 @@
+{ "name": "moon_phase", "values": [
+  { "code": "new", "label": "New moon" },
+  { "code": "waxing_crescent", "label": "Waxing crescent" },
+  { "code": "first_quarter", "label": "First quarter" },
+  { "code": "waxing_gibbous", "label": "Waxing gibbous" },
+  { "code": "full", "label": "Full moon" },
+  { "code": "waning_gibbous", "label": "Waning gibbous" },
+  { "code": "last_quarter", "label": "Last quarter", "aliases": ["third quarter"] },
+  { "code": "waning_crescent", "label": "Waning crescent" },
+  { "code": "other", "label": "Other" }
+] }
