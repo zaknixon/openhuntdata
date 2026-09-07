@@ -38,6 +38,8 @@ Rules:
 - Readers MUST ignore unknown top-level files and unknown fields anywhere.
 - Writers MUST NOT add top-level files outside this list unless the name starts with `x-`.
 - Relative paths inside the bundle MUST use forward slashes and MUST NOT contain `..` segments.
+- Importers MUST reject a bundle whose entry names are absolute or contain `..` segments rather than extracting it.
+- The reference validator additionally refuses, by default, a bundle over 2 GiB uncompressed or over 50,000 entries. That is a guardrail of that implementation, not a limit of the format.
 
 ### 3.1 manifest.json
 
@@ -65,7 +67,7 @@ Rules:
 }
 ```
 
-`files[]` MUST list every top-level file except `manifest.json`. Files under `media/` are governed by `media.json` and MAY be omitted from `files[]`. Files whose names begin with `x-` are listed with `kind: "extension"`.
+`files[]` MUST list every top-level file except `manifest.json`, including files whose names begin with `x-`, which are listed with `kind: "extension"`. Files under `media/` are governed by `media.json` and MAY be omitted from `files[]`. Validators MUST report a top-level file that is present but not listed — an `x-` file included — as an error.
 
 `coverage` is REQUIRED and is the honesty mechanism: it tells the importer and the human what is missing and why. `files[].sha256` is REQUIRED for every file present; validators treat a mismatch as an error.
 
@@ -77,14 +79,14 @@ Every record (elements of the JSON arrays, and the `properties` object of every 
 
 | Field | Type | Req | Notes |
 |---|---|---|---|
-| `id` | UUID string | yes | Stable across exports from the same app. GeoJSON features also set the feature-level `id` to the same value; feature-level `id` on a GeoJSON feature, when present, MUST equal `properties.id`. |
+| `id` | UUID string | yes | Stable across exports from the same app. A GeoJSON feature's feature-level `id`, when present, MUST equal `properties.id`. |
 | `created_at` | ISO 8601 with offset | yes | |
 | `updated_at` | ISO 8601 with offset | yes | |
 | `source` | `{ app, app_version, record_id }` | yes | Provenance. `record_id` is the app's native key, as a string. |
 | `visibility` | `"private"` \| `"shared"` | yes | As it stood in the source app. |
 | `notes` | string | no | Free text, CommonMark allowed. |
 | `media` | array of relative paths | no | Each MUST exist in `media.json`. |
-| `extensions` | object keyed by reverse-domain (`"com.example"`) | no | Opaque to other apps. Round-trip conformance requires preserving it byte-for-byte. |
+| `extensions` | object keyed by reverse-domain (`"com.example"`) | no | Opaque to other apps. Round-trip conformance requires preserving every key and value. |
 
 Cross-references (`hunt_id`, `waypoint_id`, `area_id`, `property_id`, `harvest_ids[]`, `sighting_ids[]`) are OHD `id`s. Importers MUST tolerate dangling references by keeping the record and dropping the link, and reporting the count.
 
@@ -109,7 +111,7 @@ Cross-references (`hunt_id`, `waypoint_id`, `area_id`, `property_id`, `harvest_i
 
 ```jsonc
 { "system": "boone_crockett" | "pope_young" | "sci" | "buckmasters" | "other",
-  "system_text": "…",            // required when system is "other"
+  "system_text": "…",            // REQUIRED when system is "other" (schema-enforced)
   "gross": 152.25, "net": 148.0,  // numbers, unit implied by system
   "method": "measured" | "estimated" | "ai",
   "confidence": 0.82,             // 0..1, optional, meaningful for "ai"
@@ -170,7 +172,7 @@ MoonSnapshot: phase (vocab moon_phase), illumination_pct, age_days,
 
 ### 4.8 Track (`tracks.geojson`, LineString / MultiLineString features)
 
-`name`, `category` (vocab `track_category`: `recorded`, `drawn`, `annotation`; req), `started_at`, `ended_at`, `distance_m`, `style` (object: `stroke`, `stroke_width`, `dash`, `label`, `arrow_end` booleans/strings). A text-only annotation is a Track whose LineString has exactly two identical positions and a `style.label`.
+`name`, `category` (vocab `track_category`: `recorded`, `drawn`, `annotation`, `other`; req), `started_at`, `ended_at`, `distance_m`, `style` (object: `stroke`, `stroke_width`, `dash`, `label`, `arrow_end` booleans/strings). A text-only annotation is a Track whose LineString has exactly two identical positions and a `style.label`.
 
 ### 4.9 Property (`properties.json`)
 
@@ -193,20 +195,20 @@ Each controlled field has a canonical list in `vocab/<name>.json` (`{ "values": 
 
 - **Exporter rule:** map to the closest canonical code; always write the original label in the paired `_text` field when it differs.
 - **Importer rule:** trust the code for logic; show the `_text` value to the user.
-- Validators MUST report an unknown code as an error and `other` without its `_text` as a warning.
+- Validators MUST report an unknown code as an error and `other` without its `_text` as a warning. The one exception is `score.system_text`: `score.system` is a fixed enumeration, not a vocabulary, so a `system` of `other` without `system_text` is a schema error.
 
 v1 lists:
 
 | Vocab | Values (initial) |
 |---|---|
 | `species` | Seeded North American game: `white_tailed_deer`, `mule_deer`, `black_tailed_deer`, `elk`, `moose`, `caribou`, `pronghorn`, `black_bear`, `brown_bear`, `mountain_lion`, `bobcat`, `coyote`, `wild_hog`, `wild_turkey`, `mallard`, `wood_duck`, `canada_goose`, `snow_goose`, `pheasant`, `ruffed_grouse`, `bobwhite_quail`, `mourning_dove`, `cottontail_rabbit`, `gray_squirrel`, `fox_squirrel`, `other`. Family-level codes (`waterfowl`, `upland_bird`, `small_game`, `predator`) are also valid for apps that only track families. |
-| `sex` | `male`, `female`, `unknown` |
-| `age_class` | `young`, `mature`, `old`, `unknown` (age in years, if known, goes in `measurements` as `{name:"age", unit:"a"}`) |
+| `sex` | `male`, `female`, `unknown`, `other` |
+| `age_class` | `young`, `mature`, `old`, `unknown`, `other` (age in years, if known, goes in `measurements` as `{name:"age", unit:"a"}`) |
 | `weapon` | `bow`, `crossbow`, `muzzleloader`, `rifle`, `shotgun`, `handgun`, `air_rifle`, `other` |
 | `waypoint_category` | `stand`, `blind`, `camera`, `feeder`, `food_plot`, `water`, `mineral`, `sign`, `bedding`, `travel`, `access`, `structure`, `hazard`, `animal`, `other` |
 | `area_category` | `boundary`, `food_plot`, `bedding`, `sanctuary`, `zone`, `other` |
-| `track_category` | `recorded`, `drawn`, `annotation` |
-| `moon_phase` | `new`, `waxing_crescent`, `first_quarter`, `waxing_gibbous`, `full`, `waning_gibbous`, `last_quarter`, `waning_crescent` |
+| `track_category` | `recorded`, `drawn`, `annotation`, `other` |
+| `moon_phase` | `new`, `waxing_crescent`, `first_quarter`, `waxing_gibbous`, `full`, `waning_gibbous`, `last_quarter`, `waning_crescent`, `other` |
 
 Adding a value is a minor-version change. v1.x MUST NOT rename or remove a vocabulary value; either requires a major version.
 
@@ -223,8 +225,8 @@ Adding a value is a minor-version change. v1.x MUST NOT rename or remove a vocab
 | Level | Requirements |
 |---|---|
 | **Exporter** | Produces a bundle passing the validator with zero errors. `coverage` is truthful. The user can trigger the export from inside the app without contacting support. |
-| **Importer** | Accepts any valid 1.x bundle. Never rejects for unknown fields, unknown `x-` files, unknown extension keys, or dangling references. Reports imported and skipped counts per entity type to the user. |
-| **Round-trip** | Exporter + Importer, and importing then exporting the `examples/edge-cases` fixture preserves every core field and every `extensions` block byte-for-byte. Round-trip is verified by `ohd roundtrip <original> <re-exported>`, which compares every record by `id`, ignoring only `source` and `updated_at`, and compares every `x-` file byte-for-byte. Zero differences and zero missing records is conformant. |
+| **Importer** | Accepts any valid 1.x bundle. Never rejects for unknown fields, unknown `x-` files, unknown extension keys, or dangling references. Reports imported and skipped counts per entity type to the user. Rejects bundles with unsafe entry names (see §3). |
+| **Round-trip** | Exporter + Importer, and importing then exporting the `examples/edge-cases` fixture preserves every core field and every key and value of every `extensions` block. Round-trip is verified by `ohd roundtrip <original> <re-exported>`, which compares every record by `id`, ignoring only `source` and `updated_at`, and compares every `x-` file byte-for-byte. Zero differences and zero missing records is conformant. |
 
 Badges: three SVGs in `site/badges/`, plus a table in README listing adopters, level, and date verified.
 

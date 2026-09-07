@@ -53,6 +53,15 @@ npx @openhuntdata/validator validate path/to/bundle.ohd
 npx @openhuntdata/validator validate path/to/unzipped-folder --strict --json
 ```
 
+Two more commands ship in the same CLI:
+
+```bash
+ohd manifest path/to/unzipped-folder          # fill in files[] and media.json hashes, sizes, counts
+ohd roundtrip original.ohd re-exported.ohd    # the Round-trip conformance check, record by record
+```
+
+`ohd validate` refuses a bundle whose entry names escape the bundle root, and by default refuses one over 2 GiB uncompressed or over 50,000 entries — a guardrail of this validator, not a limit of the format.
+
 ## Licensing
 
 Schemas, vocabularies, examples, and the validator are MIT ([LICENSE](LICENSE)). The specification text and this site are CC-BY-4.0 ([LICENSE-docs](LICENSE-docs)).
