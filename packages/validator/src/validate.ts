@@ -1,7 +1,11 @@
 import { openBundle, type Bundle } from './bundle.js';
 import { checkContainer } from './checks/container.js';
+import { checkCoverage } from './checks/coverage.js';
 import { checkGeoJson } from './checks/geojson.js';
+import { checkMedia } from './checks/media.js';
+import { checkRefs } from './checks/refs.js';
 import { checkSchemas } from './checks/schema.js';
+import { checkVocab } from './checks/vocab.js';
 import { createContext } from './context.js';
 import { buildReport, type Report } from './report.js';
 
@@ -21,7 +25,10 @@ export function validateBundle(input: string | Buffer, options: ValidateOptions 
   if (checkContainer(ctx)) {
     checkSchemas(ctx);
     checkGeoJson(ctx);
-    // Checks 6 to 9 are appended here in Task 8.
+    checkVocab(ctx);
+    checkRefs(ctx);
+    checkMedia(ctx);
+    checkCoverage(ctx);
   }
   return buildReport(ctx.findings);
 }
