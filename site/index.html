@@ -59,7 +59,7 @@
 └── media/               the photos, named by content hash</pre>
   <p>A bundle is a zip or a plain folder. Map files are ordinary GeoJSON and open in QGIS or geojson.io as they are. Every record carries a stable id, the app it came from, and an <code>extensions</code> slot so apps can round-trip their own fields without polluting the core.</p>
 
-  <blockquote>A bundle contains the subject's own authored records only. It never contains other people's names, contact details, reservation calendars, or records other users authored on shared maps. Exporters must offer a location-stripping option and must record its use in the manifest. <em>(SPEC.md §6)</em></blockquote>
+  <blockquote>A bundle contains the subject's own authored records only. It never contains other people's names, contact details, reservation calendars, or records other users authored on shared maps; such omissions are listed in <code>coverage.omitted</code>. Exporters MUST offer a <code>strip_location</code> option that nulls every <code>location</code>, empties <code>location_history</code>, and removes GPS EXIF from media, and MUST record its use in <code>coverage.flags</code>. <em>(SPEC.md §6)</em></blockquote>
 
   <h2>Conformance</h2>
   <table>
