@@ -1,0 +1,23 @@
+[
+  {
+    "id": "6f1c2a3e-0b1d-4c8e-9a7f-1234567890ab",
+    "created_at": "2025-11-15T09:12:00-06:00",
+    "updated_at": "2025-11-15T09:12:00-06:00",
+    "source": { "app": "OHD Examples", "app_version": "1.0.0", "record_id": "harvest-1" },
+    "visibility": "private",
+    "occurred_at": "2025-11-15T07:41:00-06:00",
+    "location": { "type": "Point", "coordinates": [-86.7816, 36.1627] },
+    "species": "white_tailed_deer",
+    "sex": "male",
+    "age_class": "mature",
+    "weapon": "rifle",
+    "notes": "Eight-point, came in from the creek bottom at first light.",
+    "weather": { "temperature_c": 3.5, "wind_speed_mps": 1.8, "wind_direction_deg": 310, "pressure_trend": "rising",
+      "moon": { "phase": "waning_crescent", "illumination_pct": 22 }, "captured_at": "2025-11-15T07:41:00-06:00", "provider": "example" },
+    "measurements": [
+      { "name": "antler_points", "value": 8, "unit": "1" },
+      { "name": "inside_spread", "value": 16.5, "unit": "[in_i]" },
+      { "name": "field_dressed_weight", "value": 165, "unit": "lb_av" }
+    ]
+  }
+]
