@@ -1,0 +1,173 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "00000000-0000-4000-8000-000000000014",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.7905,
+          36.1035
+        ]
+      },
+      "properties": {
+        "id": "00000000-0000-4000-8000-000000000014",
+        "created_at": "2025-08-20T20:00:00-06:00",
+        "updated_at": "2025-08-20T20:00:00-06:00",
+        "source": {
+          "app": "OHD Examples",
+          "app_version": "1.0.0",
+          "record_id": "rec-20"
+        },
+        "visibility": "private",
+        "name": "Creek stand",
+        "category": "stand",
+        "category_text": "Ladder stand",
+        "property_id": "00000000-0000-4000-8000-000000000001",
+        "location_history": [
+          {
+            "location": {
+              "type": "Point",
+              "coordinates": [
+                -86.7912,
+                36.104
+              ]
+            },
+            "from": "2023-09-01",
+            "to": "2025-08-20",
+            "reason": "Moved 80 m for a north wind."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "00000000-0000-4000-8000-000000000015",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.786,
+          36.115
+        ]
+      },
+      "properties": {
+        "id": "00000000-0000-4000-8000-000000000015",
+        "created_at": "2025-08-20T20:00:00-06:00",
+        "updated_at": "2025-08-20T20:00:00-06:00",
+        "source": {
+          "app": "OHD Examples",
+          "app_version": "1.0.0",
+          "record_id": "rec-21"
+        },
+        "visibility": "private",
+        "name": "Ridge blind",
+        "category": "blind",
+        "property_id": "00000000-0000-4000-8000-000000000001"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "00000000-0000-4000-8000-000000000016",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.789,
+          36.1095
+        ]
+      },
+      "properties": {
+        "id": "00000000-0000-4000-8000-000000000016",
+        "created_at": "2025-09-02T20:00:00-06:00",
+        "updated_at": "2025-09-02T20:00:00-06:00",
+        "source": {
+          "app": "OHD Examples",
+          "app_version": "1.0.0",
+          "record_id": "rec-22"
+        },
+        "visibility": "private",
+        "name": "Plot camera",
+        "category": "camera",
+        "property_id": "00000000-0000-4000-8000-000000000001"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "00000000-0000-4000-8000-000000000017",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.7895,
+          36.11
+        ]
+      },
+      "properties": {
+        "id": "00000000-0000-4000-8000-000000000017",
+        "created_at": "2025-09-02T20:00:00-06:00",
+        "updated_at": "2025-09-02T20:00:00-06:00",
+        "source": {
+          "app": "OHD Examples",
+          "app_version": "1.0.0",
+          "record_id": "rec-23"
+        },
+        "visibility": "private",
+        "name": "Corn feeder",
+        "category": "feeder",
+        "property_id": "00000000-0000-4000-8000-000000000001"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "00000000-0000-4000-8000-000000000018",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.7875,
+          36.112
+        ]
+      },
+      "properties": {
+        "id": "00000000-0000-4000-8000-000000000018",
+        "created_at": "2025-10-25T20:00:00-06:00",
+        "updated_at": "2025-10-25T20:00:00-06:00",
+        "source": {
+          "app": "OHD Examples",
+          "app_version": "1.0.0",
+          "record_id": "rec-24"
+        },
+        "visibility": "private",
+        "name": "Big scrape",
+        "category": "sign",
+        "category_text": "Scrape",
+        "property_id": "00000000-0000-4000-8000-000000000001",
+        "notes": "Fresh 10/25, licking branch worked."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "00000000-0000-4000-8000-000000000019",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.8,
+          36.105
+        ]
+      },
+      "properties": {
+        "id": "00000000-0000-4000-8000-000000000019",
+        "created_at": "2025-08-15T20:00:00-06:00",
+        "updated_at": "2025-08-15T20:00:00-06:00",
+        "source": {
+          "app": "OHD Examples",
+          "app_version": "1.0.0",
+          "record_id": "rec-25"
+        },
+        "visibility": "private",
+        "name": "Main gate",
+        "category": "access",
+        "category_text": "Gate",
+        "property_id": "00000000-0000-4000-8000-000000000001"
+      }
+    }
+  ]
+}

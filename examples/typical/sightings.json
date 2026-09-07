@@ -1,0 +1,206 @@
+[
+  {
+    "id": "00000000-0000-4000-8000-00000000012c",
+    "created_at": "2025-10-11T20:00:00-06:00",
+    "updated_at": "2025-10-11T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-300"
+    },
+    "visibility": "private",
+    "occurred_at": "2025-10-11T07:20:00-06:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -86.7905,
+        36.1035
+      ]
+    },
+    "source_kind": "in_person",
+    "hunt_id": "00000000-0000-4000-8000-000000000065",
+    "waypoint_id": "00000000-0000-4000-8000-000000000014",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "weather": {
+      "temperature_c": 12,
+      "humidity_pct": 61,
+      "pressure_hpa": 1016,
+      "pressure_trend": "steady",
+      "wind_speed_mps": 2,
+      "wind_direction_deg": 45,
+      "cloud_cover_pct": 13,
+      "moon": {
+        "phase": "full",
+        "illumination_pct": 12
+      },
+      "provider": "example"
+    },
+    "observations": [
+      {
+        "species": "white_tailed_deer",
+        "count": 3,
+        "sex": "female"
+      },
+      {
+        "species": "white_tailed_deer",
+        "count": 1,
+        "sex": "male",
+        "age_class": "young",
+        "attributes": {
+          "points": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "00000000-0000-4000-8000-00000000012d",
+    "created_at": "2025-10-25T20:00:00-06:00",
+    "updated_at": "2025-10-25T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-301"
+    },
+    "visibility": "private",
+    "occurred_at": "2025-10-25T08:05:00-06:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -86.786,
+        36.115
+      ]
+    },
+    "source_kind": "in_person",
+    "hunt_id": "00000000-0000-4000-8000-000000000067",
+    "waypoint_id": "00000000-0000-4000-8000-000000000015",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "weather": {
+      "temperature_c": 9,
+      "humidity_pct": 63,
+      "pressure_hpa": 1018,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 4,
+      "wind_direction_deg": 135,
+      "cloud_cover_pct": 39,
+      "moon": {
+        "phase": "last_quarter",
+        "illumination_pct": 36
+      },
+      "provider": "example"
+    },
+    "observations": [
+      {
+        "species": "wild_turkey",
+        "count": 7
+      }
+    ]
+  },
+  {
+    "id": "00000000-0000-4000-8000-00000000012e",
+    "created_at": "2025-11-29T20:00:00-06:00",
+    "updated_at": "2025-11-29T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-302"
+    },
+    "visibility": "private",
+    "occurred_at": "2025-11-29T06:50:00-06:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -86.7905,
+        36.1035
+      ]
+    },
+    "source_kind": "in_person",
+    "hunt_id": "00000000-0000-4000-8000-00000000006c",
+    "waypoint_id": "00000000-0000-4000-8000-000000000014",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "weather": {
+      "temperature_c": 2,
+      "humidity_pct": 68,
+      "pressure_hpa": 1018,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 1,
+      "wind_direction_deg": 0,
+      "cloud_cover_pct": 4,
+      "moon": {
+        "phase": "waxing_gibbous",
+        "illumination_pct": 96
+      },
+      "provider": "example"
+    },
+    "observations": [
+      {
+        "species": "coyote",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "00000000-0000-4000-8000-00000000012f",
+    "created_at": "2025-10-30T20:00:00-06:00",
+    "updated_at": "2025-10-30T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-303"
+    },
+    "visibility": "private",
+    "occurred_at": "2025-10-30T18:02:00-06:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -86.789,
+        36.1095
+      ]
+    },
+    "source_kind": "trail_camera",
+    "waypoint_id": "00000000-0000-4000-8000-000000000016",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "media": [
+      "media/d1108988093bd396d82f183842c9c7a2007fa37dcdd359a9da744b41b5af2079.jpg"
+    ],
+    "observations": [
+      {
+        "species": "white_tailed_deer",
+        "count": 1,
+        "sex": "male",
+        "age_class": "mature",
+        "attributes": {
+          "points": 10,
+          "nickname": "Split G2"
+        }
+      }
+    ]
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000130",
+    "created_at": "2025-11-03T20:00:00-06:00",
+    "updated_at": "2025-11-03T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-304"
+    },
+    "visibility": "private",
+    "occurred_at": "2025-11-03T05:31:00-06:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -86.789,
+        36.1095
+      ]
+    },
+    "source_kind": "trail_camera",
+    "waypoint_id": "00000000-0000-4000-8000-000000000016",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "observations": [
+      {
+        "species": "wild_hog",
+        "count": 4
+      }
+    ]
+  }
+]

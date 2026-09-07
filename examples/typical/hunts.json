@@ -1,0 +1,631 @@
+[
+  {
+    "id": "00000000-0000-4000-8000-000000000064",
+    "created_at": "2025-10-04T20:00:00-06:00",
+    "updated_at": "2025-10-04T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-100"
+    },
+    "visibility": "private",
+    "started_at": "2025-10-04T05:45:00-06:00",
+    "ended_at": "2025-10-04T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000014",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "quiet",
+    "harvest_ids": [],
+    "sighting_ids": [],
+    "weather_forecast": {
+      "temperature_c": 8,
+      "humidity_pct": 60,
+      "pressure_hpa": 1015,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 1,
+      "wind_direction_deg": 0,
+      "cloud_cover_pct": 0,
+      "moon": {
+        "phase": "waxing_gibbous",
+        "illumination_pct": 0
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": 7,
+      "humidity_pct": 60,
+      "pressure_hpa": 1015,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 1,
+      "wind_direction_deg": 0,
+      "cloud_cover_pct": 0,
+      "moon": {
+        "phase": "waxing_gibbous",
+        "illumination_pct": 0
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "waxing_gibbous",
+      "illumination_pct": 0
+    },
+    "notes": "Nothing moving."
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000065",
+    "created_at": "2025-10-11T20:00:00-06:00",
+    "updated_at": "2025-10-11T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-101"
+    },
+    "visibility": "private",
+    "started_at": "2025-10-11T05:45:00-06:00",
+    "ended_at": "2025-10-11T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000015",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "sighting",
+    "harvest_ids": [],
+    "sighting_ids": [
+      "00000000-0000-4000-8000-00000000012c"
+    ],
+    "weather_forecast": {
+      "temperature_c": 7,
+      "humidity_pct": 61,
+      "pressure_hpa": 1016,
+      "pressure_trend": "steady",
+      "wind_speed_mps": 2,
+      "wind_direction_deg": 45,
+      "cloud_cover_pct": 13,
+      "moon": {
+        "phase": "full",
+        "illumination_pct": 12
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": 6,
+      "humidity_pct": 61,
+      "pressure_hpa": 1016,
+      "pressure_trend": "steady",
+      "wind_speed_mps": 2,
+      "wind_direction_deg": 45,
+      "cloud_cover_pct": 13,
+      "moon": {
+        "phase": "full",
+        "illumination_pct": 12
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "full",
+      "illumination_pct": 12
+    }
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000066",
+    "created_at": "2025-10-18T20:00:00-06:00",
+    "updated_at": "2025-10-18T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-102"
+    },
+    "visibility": "private",
+    "started_at": "2025-10-18T05:45:00-06:00",
+    "ended_at": "2025-10-18T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000014",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "quiet",
+    "harvest_ids": [],
+    "sighting_ids": [],
+    "weather_forecast": {
+      "temperature_c": 6,
+      "humidity_pct": 62,
+      "pressure_hpa": 1017,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 3,
+      "wind_direction_deg": 90,
+      "cloud_cover_pct": 26,
+      "moon": {
+        "phase": "waning_gibbous",
+        "illumination_pct": 24
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": 5,
+      "humidity_pct": 62,
+      "pressure_hpa": 1017,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 3,
+      "wind_direction_deg": 90,
+      "cloud_cover_pct": 26,
+      "moon": {
+        "phase": "waning_gibbous",
+        "illumination_pct": 24
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "waning_gibbous",
+      "illumination_pct": 24
+    },
+    "notes": "Nothing moving."
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000067",
+    "created_at": "2025-10-25T20:00:00-06:00",
+    "updated_at": "2025-10-25T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-103"
+    },
+    "visibility": "private",
+    "started_at": "2025-10-25T05:45:00-06:00",
+    "ended_at": "2025-10-25T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000015",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "sighting",
+    "harvest_ids": [],
+    "sighting_ids": [
+      "00000000-0000-4000-8000-00000000012d"
+    ],
+    "weather_forecast": {
+      "temperature_c": 5,
+      "humidity_pct": 63,
+      "pressure_hpa": 1018,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 4,
+      "wind_direction_deg": 135,
+      "cloud_cover_pct": 39,
+      "moon": {
+        "phase": "last_quarter",
+        "illumination_pct": 36
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": 4,
+      "humidity_pct": 63,
+      "pressure_hpa": 1018,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 4,
+      "wind_direction_deg": 135,
+      "cloud_cover_pct": 39,
+      "moon": {
+        "phase": "last_quarter",
+        "illumination_pct": 36
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "last_quarter",
+      "illumination_pct": 36
+    }
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000068",
+    "created_at": "2025-11-01T20:00:00-06:00",
+    "updated_at": "2025-11-01T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-104"
+    },
+    "visibility": "private",
+    "started_at": "2025-11-01T05:45:00-06:00",
+    "ended_at": "2025-11-01T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000014",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "quiet",
+    "harvest_ids": [],
+    "sighting_ids": [],
+    "weather_forecast": {
+      "temperature_c": 4,
+      "humidity_pct": 64,
+      "pressure_hpa": 1019,
+      "pressure_trend": "steady",
+      "wind_speed_mps": 1,
+      "wind_direction_deg": 180,
+      "cloud_cover_pct": 52,
+      "moon": {
+        "phase": "waning_crescent",
+        "illumination_pct": 48
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": 3,
+      "humidity_pct": 64,
+      "pressure_hpa": 1019,
+      "pressure_trend": "steady",
+      "wind_speed_mps": 1,
+      "wind_direction_deg": 180,
+      "cloud_cover_pct": 52,
+      "moon": {
+        "phase": "waning_crescent",
+        "illumination_pct": 48
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "waning_crescent",
+      "illumination_pct": 48
+    },
+    "notes": "Nothing moving."
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000069",
+    "created_at": "2025-11-08T20:00:00-06:00",
+    "updated_at": "2025-11-08T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-105"
+    },
+    "visibility": "private",
+    "started_at": "2025-11-08T05:45:00-06:00",
+    "ended_at": "2025-11-08T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000015",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "quiet",
+    "harvest_ids": [],
+    "sighting_ids": [],
+    "weather_forecast": {
+      "temperature_c": 3,
+      "humidity_pct": 65,
+      "pressure_hpa": 1015,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 2,
+      "wind_direction_deg": 225,
+      "cloud_cover_pct": 65,
+      "moon": {
+        "phase": "new",
+        "illumination_pct": 60
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": 2,
+      "humidity_pct": 65,
+      "pressure_hpa": 1015,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 2,
+      "wind_direction_deg": 225,
+      "cloud_cover_pct": 65,
+      "moon": {
+        "phase": "new",
+        "illumination_pct": 60
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "new",
+      "illumination_pct": 60
+    },
+    "notes": "Nothing moving."
+  },
+  {
+    "id": "00000000-0000-4000-8000-00000000006a",
+    "created_at": "2025-11-15T20:00:00-06:00",
+    "updated_at": "2025-11-15T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-106"
+    },
+    "visibility": "private",
+    "started_at": "2025-11-15T05:45:00-06:00",
+    "ended_at": "2025-11-15T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000014",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "harvest",
+    "harvest_ids": [
+      "00000000-0000-4000-8000-0000000000c8"
+    ],
+    "sighting_ids": [],
+    "weather_forecast": {
+      "temperature_c": 2,
+      "humidity_pct": 66,
+      "pressure_hpa": 1016,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 3,
+      "wind_direction_deg": 270,
+      "cloud_cover_pct": 78,
+      "moon": {
+        "phase": "waxing_crescent",
+        "illumination_pct": 72
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": 1,
+      "humidity_pct": 66,
+      "pressure_hpa": 1016,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 3,
+      "wind_direction_deg": 270,
+      "cloud_cover_pct": 78,
+      "moon": {
+        "phase": "waxing_crescent",
+        "illumination_pct": 72
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "waxing_crescent",
+      "illumination_pct": 72
+    }
+  },
+  {
+    "id": "00000000-0000-4000-8000-00000000006b",
+    "created_at": "2025-11-22T20:00:00-06:00",
+    "updated_at": "2025-11-22T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-107"
+    },
+    "visibility": "private",
+    "started_at": "2025-11-22T05:45:00-06:00",
+    "ended_at": "2025-11-22T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000015",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "quiet",
+    "harvest_ids": [],
+    "sighting_ids": [],
+    "weather_forecast": {
+      "temperature_c": 1,
+      "humidity_pct": 67,
+      "pressure_hpa": 1017,
+      "pressure_trend": "steady",
+      "wind_speed_mps": 4,
+      "wind_direction_deg": 315,
+      "cloud_cover_pct": 91,
+      "moon": {
+        "phase": "first_quarter",
+        "illumination_pct": 84
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": 0,
+      "humidity_pct": 67,
+      "pressure_hpa": 1017,
+      "pressure_trend": "steady",
+      "wind_speed_mps": 4,
+      "wind_direction_deg": 315,
+      "cloud_cover_pct": 91,
+      "moon": {
+        "phase": "first_quarter",
+        "illumination_pct": 84
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "first_quarter",
+      "illumination_pct": 84
+    },
+    "notes": "Nothing moving."
+  },
+  {
+    "id": "00000000-0000-4000-8000-00000000006c",
+    "created_at": "2025-11-29T20:00:00-06:00",
+    "updated_at": "2025-11-29T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-108"
+    },
+    "visibility": "private",
+    "started_at": "2025-11-29T05:45:00-06:00",
+    "ended_at": "2025-11-29T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000014",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "sighting",
+    "harvest_ids": [],
+    "sighting_ids": [
+      "00000000-0000-4000-8000-00000000012e"
+    ],
+    "weather_forecast": {
+      "temperature_c": 0,
+      "humidity_pct": 68,
+      "pressure_hpa": 1018,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 1,
+      "wind_direction_deg": 0,
+      "cloud_cover_pct": 4,
+      "moon": {
+        "phase": "waxing_gibbous",
+        "illumination_pct": 96
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": -1,
+      "humidity_pct": 68,
+      "pressure_hpa": 1018,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 1,
+      "wind_direction_deg": 0,
+      "cloud_cover_pct": 4,
+      "moon": {
+        "phase": "waxing_gibbous",
+        "illumination_pct": 96
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "waxing_gibbous",
+      "illumination_pct": 96
+    }
+  },
+  {
+    "id": "00000000-0000-4000-8000-00000000006d",
+    "created_at": "2025-12-06T20:00:00-06:00",
+    "updated_at": "2025-12-06T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-109"
+    },
+    "visibility": "private",
+    "started_at": "2025-12-06T05:45:00-06:00",
+    "ended_at": "2025-12-06T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000015",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "quiet",
+    "harvest_ids": [],
+    "sighting_ids": [],
+    "weather_forecast": {
+      "temperature_c": -1,
+      "humidity_pct": 69,
+      "pressure_hpa": 1019,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 2,
+      "wind_direction_deg": 45,
+      "cloud_cover_pct": 17,
+      "moon": {
+        "phase": "full",
+        "illumination_pct": 8
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": -2,
+      "humidity_pct": 69,
+      "pressure_hpa": 1019,
+      "pressure_trend": "rising",
+      "wind_speed_mps": 2,
+      "wind_direction_deg": 45,
+      "cloud_cover_pct": 17,
+      "moon": {
+        "phase": "full",
+        "illumination_pct": 8
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "full",
+      "illumination_pct": 8
+    },
+    "notes": "Nothing moving."
+  },
+  {
+    "id": "00000000-0000-4000-8000-00000000006e",
+    "created_at": "2025-12-13T20:00:00-06:00",
+    "updated_at": "2025-12-13T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-110"
+    },
+    "visibility": "private",
+    "started_at": "2025-12-13T05:45:00-06:00",
+    "ended_at": "2025-12-13T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000014",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "quiet",
+    "harvest_ids": [],
+    "sighting_ids": [],
+    "weather_forecast": {
+      "temperature_c": -2,
+      "humidity_pct": 70,
+      "pressure_hpa": 1015,
+      "pressure_trend": "steady",
+      "wind_speed_mps": 3,
+      "wind_direction_deg": 90,
+      "cloud_cover_pct": 30,
+      "moon": {
+        "phase": "waning_gibbous",
+        "illumination_pct": 20
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": -3,
+      "humidity_pct": 70,
+      "pressure_hpa": 1015,
+      "pressure_trend": "steady",
+      "wind_speed_mps": 3,
+      "wind_direction_deg": 90,
+      "cloud_cover_pct": 30,
+      "moon": {
+        "phase": "waning_gibbous",
+        "illumination_pct": 20
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "waning_gibbous",
+      "illumination_pct": 20
+    },
+    "notes": "Nothing moving."
+  },
+  {
+    "id": "00000000-0000-4000-8000-00000000006f",
+    "created_at": "2025-12-20T20:00:00-06:00",
+    "updated_at": "2025-12-20T20:00:00-06:00",
+    "source": {
+      "app": "OHD Examples",
+      "app_version": "1.0.0",
+      "record_id": "rec-111"
+    },
+    "visibility": "private",
+    "started_at": "2025-12-20T05:45:00-06:00",
+    "ended_at": "2025-12-20T10:15:00-06:00",
+    "location_kind": "waypoint",
+    "waypoint_id": "00000000-0000-4000-8000-000000000015",
+    "property_id": "00000000-0000-4000-8000-000000000001",
+    "outcome": "harvest",
+    "harvest_ids": [
+      "00000000-0000-4000-8000-0000000000c9"
+    ],
+    "sighting_ids": [],
+    "weather_forecast": {
+      "temperature_c": -3,
+      "humidity_pct": 71,
+      "pressure_hpa": 1016,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 4,
+      "wind_direction_deg": 135,
+      "cloud_cover_pct": 43,
+      "moon": {
+        "phase": "last_quarter",
+        "illumination_pct": 32
+      },
+      "provider": "example"
+    },
+    "weather_actual": {
+      "temperature_c": -4,
+      "humidity_pct": 71,
+      "pressure_hpa": 1016,
+      "pressure_trend": "falling",
+      "wind_speed_mps": 4,
+      "wind_direction_deg": 135,
+      "cloud_cover_pct": 43,
+      "moon": {
+        "phase": "last_quarter",
+        "illumination_pct": 32
+      },
+      "provider": "example"
+    },
+    "moon": {
+      "phase": "last_quarter",
+      "illumination_pct": 32
+    }
+  }
+]

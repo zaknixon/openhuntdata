@@ -1,0 +1,67 @@
+[
+  {
+    "path": "media/c0855b5d26779f88fc640fcdbfc9277cc2cf953e183c3fa53404a5c55591bf63.jpg",
+    "mime": "image/jpeg",
+    "bytes": 172,
+    "sha256": "c0855b5d26779f88fc640fcdbfc9277cc2cf953e183c3fa53404a5c55591bf63",
+    "owners": [
+      {
+        "kind": "harvests",
+        "id": "00000000-0000-4000-8000-0000000000c8"
+      }
+    ],
+    "captured_at": "2025-11-15T08:05:00-06:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -86.7905,
+        36.1035
+      ]
+    },
+    "original_filename": "harvest-1.jpg"
+  },
+  {
+    "path": "media/e3f9a92796dab71fd356e03928d415061799b1a7d12468d51f3dbfa9f698ca37.jpg",
+    "mime": "image/jpeg",
+    "bytes": 172,
+    "sha256": "e3f9a92796dab71fd356e03928d415061799b1a7d12468d51f3dbfa9f698ca37",
+    "owners": [
+      {
+        "kind": "harvests",
+        "id": "00000000-0000-4000-8000-0000000000c9"
+      }
+    ],
+    "captured_at": "2025-12-20T09:20:00-06:00",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -86.786,
+        36.115
+      ]
+    },
+    "original_filename": "harvest-2.jpg"
+  },
+  {
+    "path": "media/d1108988093bd396d82f183842c9c7a2007fa37dcdd359a9da744b41b5af2079.jpg",
+    "mime": "image/jpeg",
+    "bytes": 173,
+    "sha256": "d1108988093bd396d82f183842c9c7a2007fa37dcdd359a9da744b41b5af2079",
+    "owners": [
+      {
+        "kind": "sightings",
+        "id": "00000000-0000-4000-8000-00000000012f"
+      },
+      {
+        "kind": "waypoints",
+        "id": "00000000-0000-4000-8000-000000000016"
+      }
+    ],
+    "captured_at": "2025-10-30T18:02:00-06:00",
+    "location": null,
+    "camera": {
+      "make": "Example",
+      "model": "Cam 2"
+    },
+    "original_filename": "trailcam-1.jpg"
+  }
+]

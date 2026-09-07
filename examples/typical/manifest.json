@@ -1,0 +1,93 @@
+{
+  "ohd_version": "1.0.0",
+  "exported_at": "2026-09-07T10:00:00-05:00",
+  "exporter": {
+    "name": "OHD Examples",
+    "version": "1.0.0",
+    "url": "https://github.com/openhuntdata/spec"
+  },
+  "subject": {
+    "display_name": "Example Hunter",
+    "user_id_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000002"
+  },
+  "files": [
+    {
+      "path": "harvests.json",
+      "kind": "harvests",
+      "count": 2,
+      "sha256": "a02cdb346ac9c2a2206bf8beaca1f2fb1b89ff555415c737c4f2837721400fc5",
+      "bytes": 3227
+    },
+    {
+      "path": "sightings.json",
+      "kind": "sightings",
+      "count": 5,
+      "sha256": "5a24c81dfbebc939ce0d0e38a599d0383ceaba8a5dac0d8e24af6fcfc6b80d4c",
+      "bytes": 5165
+    },
+    {
+      "path": "hunts.json",
+      "kind": "hunts",
+      "count": 12,
+      "sha256": "9be2afe2f683644540dd11ae97c5a640ab392b58e6db596d40f21072cefb1d4e",
+      "bytes": 17141
+    },
+    {
+      "path": "waypoints.geojson",
+      "kind": "waypoints",
+      "count": 6,
+      "sha256": "f33cd0c04451505a0cf87bffcc846fc7cc511b76909cee70e08f66a0de3dad48",
+      "bytes": 4688
+    },
+    {
+      "path": "areas.geojson",
+      "kind": "areas",
+      "count": 2,
+      "sha256": "0d5f685692cb0d8ceb0e059f6415e482b87bad1ddc380ce7dff5001aa02dc095",
+      "bytes": 2239
+    },
+    {
+      "path": "tracks.geojson",
+      "kind": "tracks",
+      "count": 2,
+      "sha256": "e12bfc1b7640e09c525a595e42dd1392ca7771763d68e998d745121b2304d861",
+      "bytes": 1751
+    },
+    {
+      "path": "properties.json",
+      "kind": "properties",
+      "count": 1,
+      "sha256": "2f929e7d3426aadb27c2b9d771bfa2ed0bc724423852171b73546783d598850e",
+      "bytes": 791
+    },
+    {
+      "path": "media.json",
+      "kind": "media",
+      "count": 3,
+      "sha256": "7a1069e461091f26ea487dc90975a808587c666cafe7f08a92c6466d461171bd",
+      "bytes": 1723
+    }
+  ],
+  "coverage": {
+    "included": [
+      "harvests",
+      "sightings",
+      "hunts",
+      "waypoints",
+      "areas",
+      "tracks",
+      "properties",
+      "media"
+    ],
+    "omitted": [
+      {
+        "kind": "waypoints",
+        "reason": "Two waypoints created by other club members on the shared map were omitted.",
+        "count": 2
+      }
+    ],
+    "flags": {
+      "strip_location": false
+    }
+  }
+}
