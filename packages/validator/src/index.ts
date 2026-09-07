@@ -16,3 +16,4 @@ export { checkVocab } from './checks/vocab.js';
 export { checkRefs } from './checks/refs.js';
 export { checkMedia } from './checks/media.js';
 export { checkCoverage } from './checks/coverage.js';
+export { roundtrip, type Difference, type RoundtripResult } from './roundtrip.js';

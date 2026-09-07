@@ -1,6 +1,7 @@
 import { parseArgs } from 'node:util';
 import { updateManifest } from './manifest-tool.js';
 import type { Finding, Report } from './report.js';
+import { roundtrip } from './roundtrip.js';
 import { validateBundle } from './validate.js';
 
 const USAGE = `Open Hunt Data tools
@@ -59,9 +60,18 @@ export function main(argv: string[]): number {
         console.log(values.json ? JSON.stringify(report, null, 2) : formatFindings(report, args[0]));
         return report.ok ? 0 : 1;
       }
-      case 'roundtrip':
-        console.error(`${cmd}: not implemented yet`);
-        return 2;
+      case 'roundtrip': {
+        if (args.length !== 2) { console.error(USAGE); return 2; }
+        const result = roundtrip(args[0], args[1]);
+        if (values.json) {
+          console.log(JSON.stringify(result, null, 2));
+        } else {
+          for (const m of result.missing) console.log(`missing  ${m.kind}/${m.id}`);
+          for (const d of result.differences) console.log(`changed  ${d.kind}/${d.id}${d.path}: expected ${JSON.stringify(d.expected)}, got ${JSON.stringify(d.actual)}`);
+          console.log(`${result.missing.length} missing, ${result.differences.length} difference(s)${result.ok ? ' — round-trip conformant' : ''}`);
+        }
+        return result.ok ? 0 : 1;
+      }
       default:
         console.error(`Unknown command: ${cmd}`);
         console.error(USAGE);
