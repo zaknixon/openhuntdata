@@ -1,0 +1,23 @@
+name: ci
+on:
+  push:
+    branches: [main, 'feat/**', 'release/**']
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - name: Validate example bundles
+        run: |
+          if [ -d examples/minimal ]; then npm run validate:examples; else echo "no examples yet"; fi
+      - name: Check links
+        run: |
+          if [ -f scripts/check-links.mjs ]; then npm run check:links; else echo "no link checker yet"; fi
