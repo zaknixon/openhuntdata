@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openhuntdata.org/schemas/1.0/areas.schema.json",
+  "title": "Open Hunt Data areas.geojson",
+  "type": "object",
+  "required": ["type", "features"],
+  "properties": {
+    "type": { "const": "FeatureCollection" },
+    "features": { "type": "array", "items": { "$ref": "#/$defs/feature" } }
+  },
+  "$defs": {
+    "feature": {
+      "type": "object",
+      "required": ["type", "geometry", "properties"],
+      "properties": {
+        "type": { "const": "Feature" },
+        "id": { "$ref": "common.schema.json#/$defs/uuid" },
+        "geometry": { "anyOf": [{ "$ref": "common.schema.json#/$defs/polygon" }, { "$ref": "common.schema.json#/$defs/multiPolygon" }] },
+        "properties": {
+          "allOf": [
+            { "$ref": "common.schema.json#/$defs/envelope" },
+            {
+              "type": "object",
+              "required": ["name", "category"],
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "category": { "type": "string", "minLength": 1 },
+                "category_text": { "type": "string" },
+                "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+                "area_m2": { "type": "number", "minimum": 0 },
+                "property_id": { "$ref": "common.schema.json#/$defs/uuid" }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

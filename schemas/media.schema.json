@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openhuntdata.org/schemas/1.0/media.schema.json",
+  "title": "Open Hunt Data media.json",
+  "type": "array",
+  "items": { "$ref": "#/$defs/entry" },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["path", "mime", "bytes", "sha256", "owners"],
+      "properties": {
+        "path": { "$ref": "common.schema.json#/$defs/mediaRef" },
+        "mime": { "type": "string", "pattern": "^[a-z]+/[a-z0-9.+-]+$" },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "owners": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["kind", "id"],
+            "properties": {
+              "kind": { "enum": ["harvests", "sightings", "hunts", "waypoints", "areas", "tracks", "properties"] },
+              "id": { "$ref": "common.schema.json#/$defs/uuid" }
+            }
+          }
+        },
+        "captured_at": { "$ref": "common.schema.json#/$defs/timestamp" },
+        "location": { "$ref": "common.schema.json#/$defs/nullablePoint" },
+        "camera": { "type": "object", "properties": { "make": { "type": "string" }, "model": { "type": "string" } } },
+        "original_filename": { "type": "string" }
+      }
+    }
+  }
+}
