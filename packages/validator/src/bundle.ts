@@ -12,21 +12,29 @@ export interface Bundle {
 }
 
 class DirBundle implements Bundle {
+  private cached?: { files: string[]; set: Set<string> };
   constructor(private readonly root: string) {}
   get label(): string { return this.root; }
   list(): string[] {
-    const out: string[] = [];
-    const walk = (dir: string): void => {
-      for (const e of readdirSync(dir, { withFileTypes: true })) {
-        const full = join(dir, e.name);
-        if (e.isDirectory()) walk(full);
-        else out.push(relative(this.root, full).split(sep).join('/'));
-      }
-    };
-    walk(this.root);
-    return out.sort();
+    if (!this.cached) {
+      const out: string[] = [];
+      const walk = (dir: string): void => {
+        for (const e of readdirSync(dir, { withFileTypes: true })) {
+          const full = join(dir, e.name);
+          if (e.isDirectory()) walk(full);
+          else out.push(relative(this.root, full).split(sep).join('/'));
+        }
+      };
+      walk(this.root);
+      out.sort();
+      this.cached = { files: out, set: new Set(out) };
+    }
+    return this.cached.files;
   }
-  has(p: string): boolean { return this.list().includes(p); }
+  has(p: string): boolean {
+    this.list();
+    return this.cached!.set.has(p);
+  }
   readBytes(p: string): Buffer { return readFileSync(join(this.root, p)); }
   readText(p: string): string { return this.readBytes(p).toString('utf8'); }
 }
