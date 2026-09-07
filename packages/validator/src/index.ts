@@ -5,3 +5,7 @@ export { KINDS, KIND_BY_FILE, KIND_BY_NAME, RECORD_KINDS, type Kind, type KindSp
 export { sha256 } from './hash.js';
 export { updateManifest } from './manifest-tool.js';
 export type { Manifest, ManifestFile, MediaEntry, AnyRecord } from './context.js';
+export { openBundle, type Bundle } from './bundle.js';
+export { buildReport, type Finding, type Report, type Severity } from './report.js';
+export { createContext, type Context } from './context.js';
+export { validateBundle, type ValidateOptions } from './validate.js';
