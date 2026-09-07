@@ -9,6 +9,7 @@ export function checkMedia(ctx: Context): void {
   const entries = (ctx.records.get('media') as MediaEntry[] | undefined);
 
   if (!entries) {
+    if (bundle.has('media.json')) return; // present but failed schema; already reported there
     if (onDisk.length > 0) ctx.error('media', `${onDisk.length} file(s) under media/ without media.json`);
     return;
   }

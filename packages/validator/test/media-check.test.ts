@@ -64,4 +64,18 @@ describe('media check', () => {
     const r = validateBundle(dir);
     expect(r.warnings.some((w) => w.check === 'media' && /media\/missing\.jpg/.test(w.message))).toBe(true);
   });
+
+  it('reports a schema error, not a missing-media.json error, when media.json fails schema validation', () => {
+    const dir = copyFixture('minimal');
+    mkdirSync(join(dir, 'media'));
+    const photo = Buffer.from('photo bytes');
+    const path = `media/${sha256(photo)}.jpg`;
+    writeFileSync(join(dir, path), photo);
+    // Missing required fields (mime, bytes, sha256, owners) -> fails media.schema.json.
+    writeFileSync(join(dir, 'media.json'), JSON.stringify([{ path }]));
+    updateManifest(dir);
+    const r = validateBundle(dir);
+    expect(r.errors.some((e) => e.check === 'schema' && e.path === 'media.json')).toBe(true);
+    expect(r.errors.concat(r.warnings).some((f) => f.check === 'media' && /without media\.json/.test(f.message))).toBe(false);
+  });
 });
