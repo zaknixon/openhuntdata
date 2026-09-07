@@ -3,3 +3,4 @@ dist/
 .DS_Store
 *.ohd
 !examples/**/*.ohd
+!packages/validator/test/fixtures/**/*.ohd

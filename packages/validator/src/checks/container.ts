@@ -1,3 +1,4 @@
+import { isSafeBundlePath } from '../bundle.js';
 import type { Context, Manifest } from '../context.js';
 import { sha256 } from '../hash.js';
 import { KIND_BY_FILE } from '../kinds.js';
@@ -32,6 +33,10 @@ export function checkContainer(ctx: Context): boolean {
   const listed = new Set<string>();
   for (const f of manifest.files) {
     listed.add(f.path);
+    if (!isSafeBundlePath(f.path)) {
+      ctx.error('files', 'unsafe path in manifest.files: must be relative, forward-slash, and free of ".." segments', f.path);
+      continue;
+    }
     if (!bundle.has(f.path)) {
       ctx.error('files', 'listed file does not exist in the bundle', f.path);
       continue;
@@ -51,8 +56,8 @@ export function checkContainer(ctx: Context): boolean {
   }
   for (const p of bundle.list()) {
     if (p === 'manifest.json' || listed.has(p)) continue;
-    if (p.startsWith('media/') || p.startsWith('x-') || p.startsWith('.') || p.includes('/.')) continue;
-    ctx.error('files', 'file is present in the bundle but not listed in manifest.files and not x- prefixed', p);
+    if (p.startsWith('media/') || p.split('/').pop()!.startsWith('.')) continue;
+    ctx.error('files', 'file is present in the bundle but not listed in manifest.files', p);
   }
   return true;
 }

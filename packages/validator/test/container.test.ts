@@ -63,13 +63,13 @@ describe('container checks', () => {
     expect(validateBundle(dir).errors.some((e) => e.path === 'sightings.json' && /does not exist/.test(e.message))).toBe(true);
   });
 
-  it('errors on an unlisted file unless it is x- prefixed, dot-prefixed, or under media/', () => {
+  it('errors on an unlisted file, including an x- file, unless it is dot-prefixed or under media/', () => {
     const dir = copyFixture('minimal');
     writeFileSync(join(dir, 'stray.txt'), 'x');
     writeFileSync(join(dir, 'x-stray.txt'), 'x');
     writeFileSync(join(dir, '.DS_Store'), 'x');
     const r = validateBundle(dir);
-    expect(r.errors.map((e) => e.path)).toEqual(['stray.txt']);
+    expect(r.errors.map((e) => e.path).sort()).toEqual(['stray.txt', 'x-stray.txt']);
   });
 
   it('errors when a kind file is listed with the wrong kind', () => {
