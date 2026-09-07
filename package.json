@@ -1,0 +1,14 @@
+{
+  "name": "openhuntdata-spec",
+  "private": true,
+  "description": "Open Hunt Data: a vendor-neutral format for exporting and importing a hunter's own data",
+  "license": "MIT",
+  "workspaces": ["packages/*"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "npm test -w packages/validator",
+    "build": "npm run build -w packages/validator",
+    "validate:examples": "node packages/validator/dist/bin.js validate examples/minimal && node packages/validator/dist/bin.js validate examples/typical && node packages/validator/dist/bin.js validate examples/edge-cases",
+    "check:links": "node scripts/check-links.mjs"
+  }
+}
